@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Form from './Form';
 import styled from 'styled-components';
-import Card from './Card';
 
 const FormWrapper = styled.div`
   display: flex;
@@ -20,17 +19,12 @@ class App extends Component {
     users: {}
   };
 
-  addFish = () => {
-    const users = { ...this.state.users };
-  };
-
   render() {
     return (
       <>
         <FormWrapper className="FormWrapper">
           <Form />
         </FormWrapper>
-        <Card addFish={this.addFish} />
       </>
     );
   }
