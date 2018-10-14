@@ -5,57 +5,66 @@ import LiquidCard from './LiquidCard';
 import StudentCard from './StudentCard';
 
 const StyledInput = styled.input`
-  margin: 0.5rem;
-  align-items: left;
+  @media only screen and (max-width: 400px) {
+    width: 85%;
+  }
+
+  width: 50%;
+  margin-top: 0.5rem;
+  border: 0.1rem solid black;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
 `;
 
 const CardWrapper = styled.div`
-  width: 100%;
+  @media only screen and (max-width: 400px) {
+    width: 85%;
+  }
+
+  width: 50%;
+  margin: 1rem;
+`;
+
+const FormWrapper = styled.form`
+  margin: 1rem;
+  width: 80%;
+  border-radius: 1rem;
+`;
+
+const FormField = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+`;
+
+const CreditTotal = styled.h3`
+  margin: 1rem;
+`;
+
+const Title = styled.h1`
+  margin: 1rem;
 `;
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      dob: '',
       status: '',
-      house: '',
-      postcode: '',
       income: '',
       anywhereSelected: false,
       liquidSelected: false,
-      studentSelected: false
+      studentSelected: false,
+      totalCredit: 0
     };
   }
 
-  handleNameChange = event => {
-    this.setState({
-      name: event.target.value
-    });
-  };
-
-  handleDobChange = event => {
-    this.setState({
-      dob: event.target.value
-    });
-  };
+  anywhereCredit = 300;
+  liquidCredit = 3000;
+  studentCredit = 1200;
 
   handleStatusChange = event => {
     this.setState({
       status: event.target.value
-    });
-  };
-
-  handleHouseChange = event => {
-    this.setState({
-      house: event.target.value
-    });
-  };
-
-  handlePostcodeChange = event => {
-    this.setState({
-      postcode: event.target.value
     });
   };
 
@@ -65,107 +74,98 @@ class Form extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-  };
-
-  submitUserDetails = e => {
-    e.preventDefault();
-
-    const user = {
-      name: this.state.name,
-      dob: this.state.dob,
-      status: this.state.status,
-      house: this.state.house,
-      postcode: this.state.postcode,
-      income: this.state.income
-    };
-    this.props.addUser(user);
-  };
-
   selectAnywhereCard = () => {
-    this.setState({ anywhereSelected: true });
+    this.setState({
+      anywhereSelected: true,
+      totalCredit: this.state.totalCredit + this.anywhereCredit
+    });
   };
 
   selectLiquidCard = () => {
-    this.setState({ liquidSelected: true });
+    this.setState({
+      liquidSelected: true,
+      totalCredit: this.state.totalCredit + this.liquidCredit
+    });
   };
 
   selectStudentCard = () => {
-    this.setState({ studentSelected: true });
+    this.setState({
+      studentSelected: true,
+      totalCredit: this.state.totalCredit + this.studentCredit
+    });
   };
 
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
+        <FormWrapper onSubmit={this.handleSubmit}>
+          <FormField>
             Name:
             <StyledInput
               type="text"
               name="name"
-              value={this.state.name}
               onChange={this.handleNameChange}
             />
-          </label>
-          <label>
+          </FormField>
+          <FormField>
             Date of Birth:
             <StyledInput
               type="text"
               name="dob"
-              value={this.state.dob}
               onChange={this.handleDobChange}
+              placeholder="dd/mm/yy"
             />
-          </label>
-          <label>
+          </FormField>
+          <FormField>
             Employment Status:
             <StyledInput
               type="text"
               name="status"
               value={this.state.status}
               onChange={this.handleStatusChange}
+              placeholder="full/part time or student"
             />
-          </label>
-          <label>
+          </FormField>
+          <FormField>
             House Number:
             <StyledInput
               type="text"
               name="house"
-              value={this.state.house}
               onChange={this.handleHouseChange}
             />
-          </label>
-          <label>
+          </FormField>
+          <FormField>
             Postcode:
             <StyledInput
               type="text"
               name="postcode"
-              value={this.state.postcode}
               onChange={this.handlePostcodeChange}
             />
-          </label>
-          <label>
-            Annual Income:
+          </FormField>
+          <FormField>
+            Annual Income £:
             <StyledInput
               type="text"
               name="income"
               value={this.state.income}
               onChange={this.handleIncomeChange}
             />
-          </label>
-        </form>
-        <h1>The best cards for you</h1>
+          </FormField>
+        </FormWrapper>
+        <Title>The best cards for you</Title>
         <CardWrapper>
           <AnywhereCard
             user={this.state}
             selectAnywhereCard={this.selectAnywhereCard}
             selected={this.state.anywhereSelected}
+            anywhereCredit={this.anywhereCredit}
           />
           {this.state.income >= 17000 && (
             <LiquidCard
               user={this.state}
               selectLiquidCard={this.selectLiquidCard}
               selected={this.state.liquidSelected}
+              liquidCredit={this.liquidCredit}
             />
           )}
           {this.state.status === 'student' && (
@@ -173,9 +173,13 @@ class Form extends Component {
               user={this.state}
               selectStudentCard={this.selectStudentCard}
               selected={this.state.studentSelected}
+              studentCredit={this.studentCredit}
             />
           )}
         </CardWrapper>
+        <CreditTotal>
+          Total credit available to you: £{this.state.totalCredit}
+        </CreditTotal>
       </>
     );
   }
