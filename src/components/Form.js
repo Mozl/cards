@@ -22,7 +22,10 @@ class Form extends Component {
       status: '',
       house: '',
       postcode: '',
-      income: ''
+      income: '',
+      anywhereSelected: false,
+      liquidSelected: false,
+      studentSelected: false
     };
   }
 
@@ -63,14 +66,11 @@ class Form extends Component {
   };
 
   handleSubmit = event => {
-    console.log(this.state);
     event.preventDefault();
   };
 
   submitUserDetails = e => {
-    console.log(this.state.name);
     e.preventDefault();
-    console.log(this.nameRef);
 
     const user = {
       name: this.state.name,
@@ -81,6 +81,18 @@ class Form extends Component {
       income: this.state.income
     };
     this.props.addUser(user);
+  };
+
+  selectAnywhereCard = () => {
+    this.setState({ anywhereSelected: true });
+  };
+
+  selectLiquidCard = () => {
+    this.setState({ liquidSelected: true });
+  };
+
+  selectStudentCard = () => {
+    this.setState({ studentSelected: true });
   };
 
   render() {
@@ -141,12 +153,28 @@ class Form extends Component {
               onChange={this.handleIncomeChange}
             />
           </label>
-          <StyledInput type="submit" value="Submit" />
         </form>
+        <h1>The best cards for you</h1>
         <CardWrapper>
-          <AnywhereCard user={this.state} />
-          <LiquidCard user={this.state} />
-          <StudentCard user={this.state} />
+          <AnywhereCard
+            user={this.state}
+            selectAnywhereCard={this.selectAnywhereCard}
+            selected={this.state.anywhereSelected}
+          />
+          {this.state.income >= 17000 && (
+            <LiquidCard
+              user={this.state}
+              selectLiquidCard={this.selectLiquidCard}
+              selected={this.state.liquidSelected}
+            />
+          )}
+          {this.state.status === 'student' && (
+            <StudentCard
+              user={this.state}
+              selectStudentCard={this.selectStudentCard}
+              selected={this.state.studentSelected}
+            />
+          )}
         </CardWrapper>
       </>
     );
