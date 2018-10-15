@@ -24,17 +24,18 @@ const CardName = styled.div`
 
 class StudentCard extends Component {
   render() {
+    const { selectStudentCard, selected, studentCredit } = this.props;
     return (
       <Wrapper>
-        <CardName onClick={this.props.selectStudentCard}>
+        <CardName onClick={selectStudentCard}>
           <h2>Student Life</h2>
         </CardName>
-        {this.props.selected && (
+        {selected && (
           <Box>
             <p>Apr: 18.9%</p>
             <p>Balance Transfer Offer Duration: 0 months</p>
             <p>Purchase Offer Duration: 6 Months</p>
-            <p>Credit Available: £{this.props.studentCredit}</p>
+            <p>Credit Available: £{studentCredit}</p>
           </Box>
         )}
       </Wrapper>

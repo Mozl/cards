@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Box = styled.div`
+export const Box = styled.div`
   border: 0.1rem solid black;
   display: flex;
   flex-direction: column;
@@ -11,9 +11,9 @@ const Box = styled.div`
   margin-top: 1rem;
 `;
 
-const Wrapper = styled.div``;
+export const Wrapper = styled.div``;
 
-const CardName = styled.div`
+export const CardName = styled.div`
   display: flex;
   padding-left: 0.5rem;
   border: 0.1rem solid black;
@@ -23,18 +23,19 @@ const CardName = styled.div`
 
 class AnywhereCard extends Component {
   render() {
+    const { selectAnywhereCard, anywhereCredit, selected } = this.props;
     return (
       <Wrapper>
-        <CardName onClick={this.props.selectAnywhereCard}>
+        <CardName onClick={selectAnywhereCard} className="cardName">
           <h2>Anywhere Card</h2>
         </CardName>
 
-        {this.props.selected && (
+        {selected && (
           <Box className="box">
             <p>Apr: 33.9%</p>
             <p>Balance Transfer Offer Duration: 0 months</p>
             <p>Purchase Offer Duration: 0 Months</p>
-            <p>Credit Available: £{this.props.anywhereCredit}</p>
+            <p>Credit Available: £{anywhereCredit}</p>
           </Box>
         )}
       </Wrapper>

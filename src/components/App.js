@@ -7,7 +7,6 @@ const FormWrapper = styled.div`
   @media only screen and (max-width: 400px) {
     display: flex;
     flex-direction: column;
-    align-items: left;
   }
 `;
 
@@ -18,11 +17,9 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <FormWrapper className="FormWrapper">
-          <Form />
-        </FormWrapper>
-      </>
+      <FormWrapper className="FormWrapper">
+        <Form />
+      </FormWrapper>
     );
   }
 }

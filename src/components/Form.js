@@ -4,7 +4,7 @@ import AnywhereCard from './AnywhereCard';
 import LiquidCard from './LiquidCard';
 import StudentCard from './StudentCard';
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   @media only screen and (max-width: 400px) {
     width: 85%;
   }
@@ -96,90 +96,91 @@ class Form extends Component {
   };
 
   render() {
+    const {
+      handleSubmit,
+      studentCredit,
+      selectStudentCard,
+      handleStatusChange,
+      handleIncomeChange,
+      liquidCredit,
+      selectAnywhereCard,
+      anywhereCredit,
+      selectLiquidCard
+    } = this;
+    const {
+      status,
+      income,
+      anywhereSelected,
+      liquidSelected,
+      studentSelected,
+      totalCredit
+    } = this.state;
     return (
       <>
-        <FormWrapper onSubmit={this.handleSubmit}>
+        <FormWrapper onSubmit={handleSubmit}>
           <FormField>
             Name:
-            <StyledInput
-              type="text"
-              name="name"
-              onChange={this.handleNameChange}
-            />
+            <StyledInput type="text" name="name" />
           </FormField>
           <FormField>
             Date of Birth:
-            <StyledInput
-              type="text"
-              name="dob"
-              onChange={this.handleDobChange}
-              placeholder="dd/mm/yy"
-            />
+            <StyledInput type="text" name="dob" placeholder="dd/mm/yy" />
           </FormField>
           <FormField>
             Employment Status:
             <StyledInput
               type="text"
-              name="status"
-              value={this.state.status}
-              onChange={this.handleStatusChange}
+              className="status"
+              value={status}
+              onChange={handleStatusChange}
               placeholder="full/part time or student"
             />
           </FormField>
           <FormField>
             House Number:
-            <StyledInput
-              type="text"
-              name="house"
-              onChange={this.handleHouseChange}
-            />
+            <StyledInput type="text" name="house" />
           </FormField>
           <FormField>
             Postcode:
-            <StyledInput
-              type="text"
-              name="postcode"
-              onChange={this.handlePostcodeChange}
-            />
+            <StyledInput type="text" name="postcode" />
           </FormField>
           <FormField>
             Annual Income £:
             <StyledInput
               type="text"
               name="income"
-              value={this.state.income}
-              onChange={this.handleIncomeChange}
+              value={income}
+              onChange={handleIncomeChange}
             />
           </FormField>
         </FormWrapper>
         <Title>The best cards for you</Title>
         <CardWrapper>
           <AnywhereCard
+            className="anywhereCard"
             user={this.state}
-            selectAnywhereCard={this.selectAnywhereCard}
-            selected={this.state.anywhereSelected}
-            anywhereCredit={this.anywhereCredit}
+            selectAnywhereCard={selectAnywhereCard}
+            selected={anywhereSelected}
+            anywhereCredit={anywhereCredit}
           />
-          {this.state.income >= 17000 && (
+          {income >= 17000 && (
             <LiquidCard
               user={this.state}
-              selectLiquidCard={this.selectLiquidCard}
-              selected={this.state.liquidSelected}
-              liquidCredit={this.liquidCredit}
+              selectLiquidCard={selectLiquidCard}
+              selected={liquidSelected}
+              liquidCredit={liquidCredit}
             />
           )}
-          {this.state.status === 'student' && (
+          {status === 'student' && (
             <StudentCard
               user={this.state}
-              selectStudentCard={this.selectStudentCard}
-              selected={this.state.studentSelected}
-              studentCredit={this.studentCredit}
+              selectStudentCard={selectStudentCard}
+              selected={studentSelected}
+              studentCredit={studentCredit}
             />
           )}
         </CardWrapper>
-        <CreditTotal>
-          Total credit available to you: £{this.state.totalCredit}
-        </CreditTotal>
+        <CreditTotal>Total credit available to you: £{totalCredit}</CreditTotal>
       </>
     );
   }

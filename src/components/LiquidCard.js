@@ -24,17 +24,18 @@ const Wrapper = styled.div``;
 
 class LiquidCard extends Component {
   render() {
+    const { selectLiquidCard, selected, liquidCredit } = this.props;
     return (
       <Wrapper>
-        <CardName onClick={this.props.selectLiquidCard}>
+        <CardName onClick={selectLiquidCard}>
           <h2>Liquid Life</h2>
         </CardName>
-        {this.props.selected && (
+        {selected && (
           <Box>
             <p>Apr: 33.9%</p>
             <p>Balance Transfer Offer Duration: 12 months</p>
             <p>Purchase Offer Duration: 6 Months</p>
-            <p>Credit Available: £{this.props.liquidCredit}</p>
+            <p>Credit Available: £{liquidCredit}</p>
           </Box>
         )}
       </Wrapper>

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="FormWrapper sc-fjdhpX cmNDzv"
+>
+  <form
+    className="sc-gZMcBi rzLcK"
+  >
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      Name:
+      <input
+        className="sc-dnqmqq bOswFF"
+        name="name"
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      Date of Birth:
+      <input
+        className="sc-dnqmqq bOswFF"
+        name="dob"
+        placeholder="dd/mm/yy"
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      Employment Status:
+      <input
+        className="status sc-dnqmqq bOswFF"
+        onChange={[Function]}
+        placeholder="full/part time or student"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      House Number:
+      <input
+        className="sc-dnqmqq bOswFF"
+        name="house"
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      Postcode:
+      <input
+        className="sc-dnqmqq bOswFF"
+        name="postcode"
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-gqjmRU hvolDC"
+    >
+      Annual Income £:
+      <input
+        className="sc-dnqmqq bOswFF"
+        name="income"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+  <h1
+    className="sc-jTzLTM evAbCp"
+  >
+    The best cards for you
+  </h1>
+  <div
+    className="sc-iwsKbI fzIXaw"
+  >
+    <div
+      className="sc-bwzfXH uTxCW"
+    >
+      <div
+        className="cardName sc-htpNat ghFYkJ"
+        onClick={[Function]}
+      >
+        <h2>
+          Anywhere Card
+        </h2>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="sc-VigVT diGRdv"
+  >
+    Total credit available to you: £
+    0
+  </h3>
+</div>
+`;
