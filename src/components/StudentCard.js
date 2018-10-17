@@ -30,7 +30,7 @@ class StudentCard extends Component {
         <CardName onClick={selectStudentCard}>
           <h2>Student Life</h2>
         </CardName>
-        {selected && (
+        {!selected && (
           <Box>
             <p>Apr: 18.9%</p>
             <p>Balance Transfer Offer Duration: 0 months</p>

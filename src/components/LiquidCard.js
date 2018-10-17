@@ -30,7 +30,7 @@ class LiquidCard extends Component {
         <CardName onClick={selectLiquidCard}>
           <h2>Liquid Life</h2>
         </CardName>
-        {selected && (
+        {!selected && (
           <Box>
             <p>Apr: 33.9%</p>
             <p>Balance Transfer Offer Duration: 12 months</p>

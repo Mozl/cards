@@ -30,7 +30,7 @@ class AnywhereCard extends Component {
           <h2>Anywhere Card</h2>
         </CardName>
 
-        {selected && (
+        {!selected && (
           <Box className="box">
             <p>Apr: 33.9%</p>
             <p>Balance Transfer Offer Duration: 0 months</p>

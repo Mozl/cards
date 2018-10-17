@@ -51,9 +51,9 @@ class Form extends Component {
     this.state = {
       status: '',
       income: '',
-      anywhereSelected: false,
-      liquidSelected: false,
-      studentSelected: false,
+      anywhereSelected: true,
+      liquidSelected: true,
+      studentSelected: true,
       totalCredit: 0
     };
   }
@@ -76,21 +76,21 @@ class Form extends Component {
 
   selectAnywhereCard = () => {
     this.setState({
-      anywhereSelected: true,
+      anywhereSelected: !this.state.anywhereSelected,
       totalCredit: this.state.totalCredit + this.anywhereCredit
     });
   };
 
   selectLiquidCard = () => {
     this.setState({
-      liquidSelected: true,
+      liquidSelected: !this.state.liquidSelected,
       totalCredit: this.state.totalCredit + this.liquidCredit
     });
   };
 
   selectStudentCard = () => {
     this.setState({
-      studentSelected: true,
+      studentSelected: !this.state.studentSelected,
       totalCredit: this.state.totalCredit + this.studentCredit
     });
   };
