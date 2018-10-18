@@ -19,6 +19,8 @@ export const CardName = styled.div`
   border: 0.1rem solid black;
   border-radius: 1.25rem;
   cursor: pointer;
+  color: ${({ selected }) => (selected ? 'black' : 'white')};
+  background-color: ${({ selected }) => (selected ? 'white' : 'grey')};
 `;
 
 class AnywhereCard extends Component {
@@ -26,7 +28,11 @@ class AnywhereCard extends Component {
     const { selectAnywhereCard, anywhereCredit, selected } = this.props;
     return (
       <Wrapper>
-        <CardName onClick={selectAnywhereCard} className="cardName">
+        <CardName
+          onClick={selectAnywhereCard}
+          className="cardName"
+          selected={selected}
+        >
           <h2>Anywhere Card</h2>
         </CardName>
 

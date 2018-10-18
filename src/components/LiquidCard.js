@@ -18,6 +18,8 @@ const CardName = styled.div`
   border-radius: 1.25rem;
   margin: 1rem 0 1rem 0;
   cursor: pointer;
+  color: ${({ selected }) => (selected ? 'black' : 'white')};
+  background-color: ${({ selected }) => (selected ? 'white' : 'grey')};
 `;
 
 const Wrapper = styled.div``;
@@ -27,7 +29,7 @@ class LiquidCard extends Component {
     const { selectLiquidCard, selected, liquidCredit } = this.props;
     return (
       <Wrapper>
-        <CardName onClick={selectLiquidCard}>
+        <CardName onClick={selectLiquidCard} selected={selected}>
           <h2>Liquid Life</h2>
         </CardName>
         {!selected && (
