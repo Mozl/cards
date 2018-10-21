@@ -83,8 +83,9 @@ Array [
       className="sc-bwzfXH uTxCW"
     >
       <div
-        className="cardName sc-htpNat ghFYkJ"
+        className="cardName sc-htpNat keciuZ"
         onClick={[Function]}
+        selected={true}
       >
         <h2>
           Anywhere Card
@@ -93,7 +94,7 @@ Array [
     </div>
   </div>,
   <h3
-    className="sc-VigVT diGRdv"
+    className="creditTotal sc-VigVT diGRdv"
   >
     Total credit available to you: £
     0

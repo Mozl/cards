@@ -16,6 +16,8 @@ export const StyledInput = styled.input`
   padding: 0.5rem;
 `;
 
+StyledInput.displayName = 'StyledInput';
+
 const CardWrapper = styled.div`
   @media only screen and (max-width: 400px) {
     width: 85%;
@@ -37,9 +39,13 @@ const FormField = styled.div`
   margin-bottom: 1rem;
 `;
 
+FormField.displayName = 'FormField';
+
 const CreditTotal = styled.h3`
   margin: 1rem;
 `;
+
+CreditTotal.displayName = 'CreditTotal';
 
 const Title = styled.h1`
   margin: 1rem;
@@ -75,24 +81,42 @@ class Form extends Component {
   };
 
   selectAnywhereCard = () => {
+    const { anywhereSelected, totalCredit } = this.state;
     this.setState({
-      anywhereSelected: !this.state.anywhereSelected,
-      totalCredit: this.state.totalCredit + this.anywhereCredit
+      anywhereSelected: !anywhereSelected,
+      totalCredit: totalCredit + this.anywhereCredit
     });
+    if (!anywhereSelected) {
+      this.setState({
+        totalCredit: totalCredit - this.anywhereCredit
+      });
+    }
   };
 
   selectLiquidCard = () => {
+    const { liquidSelected, totalCredit } = this.state;
     this.setState({
-      liquidSelected: !this.state.liquidSelected,
-      totalCredit: this.state.totalCredit + this.liquidCredit
+      liquidSelected: !liquidSelected,
+      totalCredit: totalCredit + this.liquidCredit
     });
+    if (!liquidSelected) {
+      this.setState({
+        totalCredit: totalCredit - this.liquidCredit
+      });
+    }
   };
 
   selectStudentCard = () => {
+    const { studentSelected, totalCredit } = this.state;
     this.setState({
-      studentSelected: !this.state.studentSelected,
-      totalCredit: this.state.totalCredit + this.studentCredit
+      studentSelected: !studentSelected,
+      totalCredit: totalCredit + this.studentCredit
     });
+    if (!studentSelected) {
+      this.setState({
+        totalCredit: totalCredit - this.studentCredit
+      });
+    }
   };
 
   render() {
@@ -180,7 +204,9 @@ class Form extends Component {
             />
           )}
         </CardWrapper>
-        <CreditTotal>Total credit available to you: £{totalCredit}</CreditTotal>
+        <CreditTotal className="creditTotal">
+          Total credit available to you: £{totalCredit}
+        </CreditTotal>
       </>
     );
   }

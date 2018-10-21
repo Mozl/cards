@@ -22,6 +22,8 @@ const CardName = styled.div`
   background-color: ${({ selected }) => (selected ? 'white' : 'grey')};
 `;
 
+CardName.displayName = 'LiquidCardName';
+
 const Wrapper = styled.div``;
 
 class LiquidCard extends Component {

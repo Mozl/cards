@@ -5,11 +5,27 @@ exports[`renders correctly 1`] = `
   className="sc-bwzfXH uTxCW"
 >
   <div
-    className="sc-htpNat dwqNSU"
+    className="sc-htpNat dSltdS"
   >
     <h2>
       Student Life
     </h2>
+  </div>
+  <div
+    className="sc-bdVaJa dIWyBO"
+  >
+    <p>
+      Apr: 18.9%
+    </p>
+    <p>
+      Balance Transfer Offer Duration: 0 months
+    </p>
+    <p>
+      Purchase Offer Duration: 6 Months
+    </p>
+    <p>
+      Credit Available: £
+    </p>
   </div>
 </div>
 `;

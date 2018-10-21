@@ -24,6 +24,8 @@ const CardName = styled.div`
   background-color: ${({ selected }) => (selected ? 'white' : 'grey')};
 `;
 
+CardName.displayName = 'StudentCardName';
+
 class StudentCard extends Component {
   render() {
     const { selectStudentCard, selected, studentCredit } = this.props;

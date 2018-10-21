@@ -23,6 +23,8 @@ export const CardName = styled.div`
   background-color: ${({ selected }) => (selected ? 'white' : 'grey')};
 `;
 
+CardName.displayName = 'AnywhereCardName';
+
 class AnywhereCard extends Component {
   render() {
     const { selectAnywhereCard, anywhereCredit, selected } = this.props;

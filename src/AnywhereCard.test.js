@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AnywhereCard, { CardName } from './components/AnywhereCard';
+import AnywhereCard from './components/AnywhereCard';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
@@ -24,11 +24,4 @@ it('prop selected changes', () => {
 it('has a credit of 300', () => {
   const wrapper = mount(<AnywhereCard selected={false} anywhereCredit={300} />);
   expect(wrapper.props().anywhereCredit).toBe(300);
-});
-
-it('calls onClick', () => {
-  const mockOnClick = jest.fn();
-  const wrapper = mount(<AnywhereCard onClick={mockOnClick} />);
-  wrapper.find(CardName).simulate('click');
-  expect(mockOnClick.mock.calls.length).toEqual(1);
 });
