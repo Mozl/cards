@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
-import Form from './Form';
+import Form from './components/Form';
 import styled from 'styled-components';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const FormWrapper = styled.div`
   @media only screen and (max-width: 400px) {
@@ -11,15 +12,15 @@ const FormWrapper = styled.div`
 `;
 
 class App extends Component {
-  state = {
-    users: {}
-  };
+  state = {};
 
   render() {
     return (
-      <FormWrapper className="FormWrapper">
-        <Form />
-      </FormWrapper>
+      <Provider store={store}>
+        <FormWrapper className="FormWrapper">
+          <Form />
+        </FormWrapper>
+      </Provider>
     );
   }
 }

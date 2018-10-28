@@ -18,6 +18,16 @@ export const StyledInput = styled.input`
 
 StyledInput.displayName = 'StyledInput';
 
+const DropDown = styled.select`
+  @media only screen and (max-width: 400px) {
+    width: 85%;
+  }
+
+  width: 50%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+`;
+
 const CardWrapper = styled.div`
   @media only screen and (max-width: 400px) {
     width: 85%;
@@ -152,13 +162,15 @@ class Form extends Component {
           </FormField>
           <FormField>
             Employment Status:
-            <StyledInput
-              type="text"
-              className="status"
+            <DropDown
+              name="status"
               value={status}
               onChange={handleStatusChange}
-              placeholder="full/part time or student"
-            />
+            >
+              <option>Select status</option>
+              <option>Student</option>
+              <option>Other</option>
+            </DropDown>
           </FormField>
           <FormField>
             House Number:
@@ -195,7 +207,7 @@ class Form extends Component {
               liquidCredit={liquidCredit}
             />
           )}
-          {status === 'student' && (
+          {status === 'Student' && (
             <StudentCard
               user={this.state}
               selectStudentCard={selectStudentCard}

@@ -18,7 +18,6 @@ class Card extends Component {
   }
 
   render() {
-    const { addFish } = this.props;
     return <Box>Info goes here</Box>;
   }
 }
