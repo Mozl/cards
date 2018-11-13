@@ -1,6 +1,10 @@
-// import { combineReducers } from 'redux';
-// // import { incomeReducer } from './incomeReducer';
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+// import { incomeReducer } from './incomeReducer';
 
-// export default combineReducers({
-//   income: incomeReducer
-// });
+const rootReducer = combineReducers({
+  // income: incomeReducer,
+  form: formReducer
+});
+
+export default rootReducer;

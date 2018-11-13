@@ -3,10 +3,10 @@
 exports[`renders correctly 1`] = `
 Array [
   <form
-    className="sc-gZMcBi rzLcK"
+    className="sc-gqjmRU dUoxRD"
   >
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       Name:
       <input
@@ -16,7 +16,7 @@ Array [
       />
     </div>
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       Date of Birth:
       <input
@@ -27,19 +27,28 @@ Array [
       />
     </div>
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       Employment Status:
-      <input
-        className="status sc-dnqmqq bOswFF"
+      <select
+        className="sc-iwsKbI kmDqyJ"
+        name="status"
         onChange={[Function]}
-        placeholder="full/part time or student"
-        type="text"
         value=""
-      />
+      >
+        <option>
+          Select status
+        </option>
+        <option>
+          Student
+        </option>
+        <option>
+          Other
+        </option>
+      </select>
     </div>
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       House Number:
       <input
@@ -49,7 +58,7 @@ Array [
       />
     </div>
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       Postcode:
       <input
@@ -59,7 +68,7 @@ Array [
       />
     </div>
     <div
-      className="sc-gqjmRU hvolDC"
+      className="sc-VigVT PARcK"
     >
       Annual Income £:
       <input
@@ -72,12 +81,12 @@ Array [
     </div>
   </form>,
   <h1
-    className="sc-jTzLTM evAbCp"
+    className="sc-fjdhpX eVuMKV"
   >
     The best cards for you
   </h1>,
   <div
-    className="sc-iwsKbI fzIXaw"
+    className="sc-gZMcBi kxKOSw"
   >
     <div
       className="sc-bwzfXH uTxCW"
@@ -94,7 +103,7 @@ Array [
     </div>
   </div>,
   <h3
-    className="creditTotal sc-VigVT diGRdv"
+    className="creditTotal sc-jTzLTM evAbCp"
   >
     Total credit available to you: £
     0
