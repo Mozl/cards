@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AnywhereCard from './components/AnywhereCard';
+import AnywhereCard from '../components/AnywhereCard';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
