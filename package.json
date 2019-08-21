@@ -9,7 +9,7 @@
     "jest-styled-components": "^6.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.1.0",
+    "react-redux": "^7.1.0",
     "react-scripts": "2.0.4",
     "react-test-renderer": "^16.5.2",
     "redux": "^4.0.1",
